@@ -5,7 +5,7 @@ on:
 jobs:
   bugTemplateCheck:
     if: >-
-          !contains([10654537, 12360257], github.event.issue.user.id) &&
+          github.event.issue.user.id != 10654537 && github.event.issue.user.id != 12360257 &&
           github.event.issue.labels.*.name == 'bug' && !contains(github.event.issue.body, 'Device model')
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +20,7 @@ jobs:
             This action was performed automatically.
   labelCheck:
     if: >-
-          !contains([10654537, 12360257], github.event.issue.user.id) &&
+          github.event.issue.user.id != 10654537 && github.event.issue.user.id != 12360257 &&
           github.event.issue.labels == []
     runs-on: ubuntu-latest
     steps:
