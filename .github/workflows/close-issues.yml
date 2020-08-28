@@ -21,7 +21,7 @@ jobs:
   labelCheck:
     if: >-
           github.event.issue.user.id != 10654537 && github.event.issue.user.id != 12360257 &&
-          github.event.issue.labels == []
+          join(github.event.issue.labels) == ''
     runs-on: ubuntu-latest
     steps:
       - name: Close Issue
